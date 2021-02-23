@@ -1,0 +1,17 @@
+[package]
+name = "uefi_std_stub"
+version = "0.1.0"
+authors = ["Xiaoyu Lu <xiaoyux.lu@intel.com>"]
+edition = "2018"
+license = "MIT"
+homepage = "https://github.com/jyao1/rust-uefi-std-stub"
+repository = "https://github.com/jyao1/rust-uefi-std-stub"
+
+description = "for rustls no_std use, export rustls used functions, traits and structs in std"
+readme = "readme.md"
+
+[dependencies.hashbrown]
+version = "0.9.1"
+
+[dependencies.spin]
+version = "0.4.9"
