@@ -25,5 +25,5 @@ impl SystemTime {
  }
 
 pub fn now() -> SystemTime {
-    SystemTime(1612680532)
+    SystemTime(uefi_time::get_rtc_time() as u64)
 }

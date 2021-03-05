@@ -10,6 +10,9 @@ repository = "https://github.com/jyao1/rust-uefi-std-stub"
 description = "for rustls no_std use, export rustls used functions, traits and structs in std"
 readme = "readme.md"
 
+[dependencies]
+uefi_time = {git = "https://github.com/jyao1/rust-uefi-time.git"}
+
 [dependencies.hashbrown]
 version = "0.9.1"
 
