@@ -661,7 +661,7 @@ impl<'a> DerefMut for IoSliceMut<'a> {
 /// ABI compatible with the `iovec` type on Unix platforms and `WSABUF` on
 /// Windows.
 
-// #[derive(Copy, Clone)]
+#[derive(Copy, Clone)]
 #[repr(transparent)]
 pub struct IoSlice<'a>(sys::io::IoSlice<'a>);
 

@@ -1,5 +1,7 @@
 pub mod io {
     pub struct IoSliceMut<'a>(&'a mut [u8]);
+
+    #[derive(Clone, Copy)]
     pub struct IoSlice<'a>(&'a [u8]);
 
     impl<'a> IoSliceMut<'a> {

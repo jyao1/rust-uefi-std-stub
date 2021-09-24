@@ -27,6 +27,8 @@ pub use core::result;
 pub use core::marker;
 pub use core::option;
 pub use core::iter;
+pub use core::hash;
+pub use core::str;
 
 pub mod sync {
 
@@ -37,17 +39,23 @@ pub mod sync {
         pub fn new(user_data: T) -> Self {
             Mutex(spin::Mutex::new(user_data))
         }
-        pub fn try_lock(&self) -> Option<spin::MutexGuard<T>>
+        pub fn try_lock(&self) -> Result<spin::MutexGuard<T>, ()>
         {
-            self.0.try_lock()
+            if let Some(res) = self.0.try_lock() {
+                Ok(res)
+            } else {
+                Err(())
+            }
         }
 
-        pub fn lock(&self) -> Option<spin::MutexGuard<T>>
+        pub fn lock(&self) -> Result<spin::MutexGuard<T>, ()>
         {
-            Some(self.0.lock())
+            self.try_lock()
         }
     }
     pub use alloc::sync::*;
+
+    pub use spin::MutexGuard;
 }
 
 pub mod collections {
@@ -56,6 +64,7 @@ pub mod collections {
     // use hashbrown's hashmap instead of std's hashmap
     pub use hashbrown::HashMap;
     pub use hashbrown::HashSet;
+    pub use hashbrown::hash_map;
 }
 
 pub mod memchr {

@@ -7,7 +7,7 @@ pub use crate::result::Result::{self, Err, Ok};
 pub use crate::iter::{Extend, IntoIterator, Iterator};
 pub use core::prelude::v1::{
     Clone, Copy, Debug, Default, Eq, Hash, Ord,
-    PartialEq, PartialOrd
+    PartialEq, PartialOrd, derive, test
 };
 
 pub use crate::vec::Vec;
