@@ -15,6 +15,8 @@ uefi_time = {git = "https://github.com/jyao1/rust-uefi-time.git"}
 
 [dependencies.hashbrown]
 version = "0.11.2"
+default-features = false
+
 
 [dependencies.spin]
 version = "0.5.2"
